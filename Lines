@@ -1,6 +1,15 @@
 __add_to_cart = {'by':By.XPATH,'locator':'/html/body/nav/div/div[2]/ul/li[4]/a/span'}
+__topnav = {'by':By.ID,'locator':'top-links'}
+    
+    
+    def add_to_cart(self):
+        firstbutton= self._get_element(self.__topnav['by'],self.__topnav['locator'])
+        self._click(firstbutton)
 
+        button_cart = self._get_element(self.__add_to_cart['by'],self.__add_to_cart['locator'])
+        self._is_present(button_cart, 'No se encuentra el boton Add to Cart')
+        self._is_visible(button_cart, 'El boton Add to Cart no se encuentra visible') 
+        self._is_enabled(button_cart, 'El boton Add to Cart no se encuentra habilitado') 
+        self._click(button_cart)
 
-
-    __topnav = {'by':By.ID,'locator':'top-links'}
     
